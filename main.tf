@@ -41,26 +41,131 @@ resource "snowflake_warehouse" "warehouse_multi" {
 
 }
 
-resource "snowflake_warehouse_grant" "grant" {
+resource "snowflake_warehouse_grant" "grant_usage" {
   count = var.max_cluster_count == null && var.attach_grant_usage == true ? 1 : 0
 
   warehouse_name = snowflake_warehouse.warehouse[0].name
   privilege      = "USAGE"
 
-  roles = var.roles
+  roles = var.usage_roles
 
   enable_multiple_grants = true
-  with_grant_option      = var.with_grant_option
+  with_grant_option      = var.usage_with_grant_option
 }
 
-resource "snowflake_warehouse_grant" "grant_multi" {
+resource "snowflake_warehouse_grant" "grant_usage_multi" {
   count = var.max_cluster_count != null && var.attach_grant_usage == true ? 1 : 0
 
   warehouse_name = snowflake_warehouse.warehouse_multi[0].name
   privilege      = "USAGE"
 
-  roles = var.roles
+  roles = var.usage_roles
 
   enable_multiple_grants = true
-  with_grant_option      = var.with_grant_option
+  with_grant_option      = var.usage_with_grant_option
+}
+
+resource "snowflake_warehouse_grant" "grant_modify" {
+  count = var.max_cluster_count == null && var.attach_grant_modify == true ? 1 : 0
+
+  warehouse_name = snowflake_warehouse.warehouse[0].name
+
+  privilege = "MODIFY"
+
+  roles  = var.modify_roles
+
+  enable_multiple_grants = true
+  with_grant_option      = var.modify_with_grant_option
+}
+
+resource "snowflake_warehouse_grant" "grant_modify_multi" {
+  count = var.max_cluster_count != null && var.attach_grant_modify == true ? 1 : 0
+
+  warehouse_name = snowflake_warehouse.warehouse_multi[0].name
+
+  privilege = "MODIFY"
+
+  roles  = var.modify_roles
+
+  enable_multiple_grants = true
+  with_grant_option      = var.modify_with_grant_option
+}
+
+resource "snowflake_warehouse_grant" "grant_operate" {
+  count = var.max_cluster_count == null && var.attach_grant_operate == true ? 1 : 0
+
+  warehouse_name = snowflake_warehouse.warehouse[0].name
+
+  privilege = "OPERATE"
+
+  roles  = var.operate_roles
+
+  enable_multiple_grants = true
+  with_grant_option      = var.operate_with_grant_option
+}
+
+resource "snowflake_warehouse_grant" "grant_operate_multi" {
+  count = var.max_cluster_count != null && var.attach_grant_operate == true ? 1 : 0
+
+  warehouse_name = snowflake_warehouse.warehouse_multi[0].name
+
+  privilege = "OPERATE"
+
+  roles  = var.operate_roles
+
+  enable_multiple_grants = true
+  with_grant_option      = var.operate_with_grant_option
+}
+
+resource "snowflake_warehouse_grant" "grant_ownership" {
+  count = var.max_cluster_count == null && var.attach_grant_ownership == true ? 1 : 0
+
+  warehouse_name = snowflake_warehouse.warehouse[0].name
+
+  privilege = "OWNERSHIP"
+
+  roles  = var.ownership_roles
+
+  enable_multiple_grants = true
+  with_grant_option      = var.ownership_with_grant_option
+}
+
+resource "snowflake_warehouse_grant" "grant_ownership_multi" {
+  count = var.max_cluster_count != null && var.attach_grant_ownership == true ? 1 : 0
+
+  warehouse_name = snowflake_warehouse.warehouse_multi[0].name
+
+  privilege = "OWNERSHIP"
+
+  roles  = var.ownership_roles
+
+  enable_multiple_grants = true
+  with_grant_option      = var.ownership_with_grant_option
+}
+
+
+resource "snowflake_warehouse_grant" "grant_monitor" {
+  count = var.max_cluster_count == null && var.attach_grant_monitor == true ? 1 : 0
+
+  warehouse_name = snowflake_warehouse.warehouse[0].name
+
+  privilege = "MONITOR"
+
+  roles  = var.monitor_roles
+
+  enable_multiple_grants = true
+  with_grant_option      = var.monitor_with_grant_option
+}
+
+resource "snowflake_warehouse_grant" "grant_monitor_multi" {
+  count = var.max_cluster_count != null &&  var.attach_grant_monitor == true ? 1 : 0
+
+  warehouse_name = snowflake_warehouse.warehouse_multi[0].name
+
+  privilege = "MONITOR"
+
+  roles  = var.monitor_roles
+
+  enable_multiple_grants = true
+  with_grant_option      = var.monitor_with_grant_option
 }

@@ -22,13 +22,85 @@ variable "attach_grant_usage" {
   default     = false
 }
 
-variable "roles" {
+variable "usage_roles" {
   type        = list(string)
   description = "A list of roles that will be granted usage on the warehouse."
   default     = []
 }
 
-variable "with_grant_option" {
+variable "usage_with_grant_option" {
+  type        = bool
+  description = "When this is set to true, allows the recipient role to grant the privileges to other roles."
+  default     = false
+}
+
+variable "attach_grant_modify" {
+  type        = bool
+  description = "Create the grant modify at the same time. (true|false)"
+  default     = false
+}
+
+variable "modify_roles" {
+  type        = list(string)
+  description = "A list of roles that will be granted modify on the warehouse."
+  default     = []
+}
+
+variable "modify_with_grant_option" {
+  type        = bool
+  description = "When this is set to true, allows the recipient role to grant the privileges to other roles."
+  default     = false
+}
+
+variable "attach_grant_operate" {
+  type        = bool
+  description = "Create the grant operate at the same time. (true|false)"
+  default     = false
+}
+
+variable "operate_roles" {
+  type        = list(string)
+  description = "A list of roles that will be granted operate on the warehouse."
+  default     = []
+}
+
+variable "operate_with_grant_option" {
+  type        = bool
+  description = "When this is set to true, allows the recipient role to grant the privileges to other roles."
+  default     = false
+}
+
+variable "attach_grant_ownership" {
+  type        = bool
+  description = "Create the grant ownership at the same time. (true|false)"
+  default     = false
+}
+
+variable "ownership_roles" {
+  type        = list(string)
+  description = "A list of roles that will be granted ownership on the warehouse."
+  default     = []
+}
+
+variable "ownership_with_grant_option" {
+  type        = bool
+  description = "When this is set to true, allows the recipient role to grant the privileges to other roles."
+  default     = false
+}
+
+variable "attach_grant_monitor" {
+  type        = bool
+  description = "Create the grant monitor at the same time. (true|false)"
+  default     = false
+}
+
+variable "monitor_roles" {
+  type        = list(string)
+  description = "A list of roles that will be granted monitor on the warehouse."
+  default     = []
+}
+
+variable "monitor_with_grant_option" {
   type        = bool
   description = "When this is set to true, allows the recipient role to grant the privileges to other roles."
   default     = false

@@ -1,3 +1,4 @@
+// Commented out areas are reserved for enterprise and up
 module "warehouse" {
   source = "../../../terraform-sf-warehouse"
 
@@ -8,12 +9,12 @@ module "warehouse" {
   initially_suspended   = true
   auto_resume           = true
   auto_suspend          = 300
-  wait_for_provisioning = true
+  //wait_for_provisioning = true
 
-  min_cluster_count     = 1
-  max_cluster_count     = 2
+  //min_cluster_count     = 1
+  //max_cluster_count     = 2
   max_concurrency_level = 0
-  scaling_policy        = "STANDARD"
+  //scaling_policy        = "STANDARD"
 
   resource_monitor = ""
 
@@ -21,6 +22,22 @@ module "warehouse" {
   statement_queued_timeout_in_seconds = 0
 
   attach_grant_usage = true
-  roles              = ["SYSADMIN"]
-  with_grant_option  = true
+  usage_roles        = ["SYSADMIN"]
+  usage_with_grant_option  = true
+
+  attach_grant_modify = true
+  modify_roles        = ["SYSADMIN"]
+  modify_with_grant_option  = true
+
+  attach_grant_ownership = true
+  ownership_roles        = ["SYSADMIN"]
+  ownership_with_grant_option  = true
+
+  attach_grant_monitor = true
+  monitor_roles        = ["SYSADMIN"]
+  monitor_with_grant_option  = true
+
+  attach_grant_operate = true
+  operate_roles        = ["SYSADMIN"]
+  operate_with_grant_option  = true
 }
