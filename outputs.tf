@@ -3,6 +3,7 @@ output "warehouse_id" {
     snowflake_warehouse.warehouse.*.id,
     snowflake_warehouse.warehouse_multi.*.id
   ]
+  description = "The Warehouse resource ID."
 }
 
 output "warehouse_name" {
@@ -10,4 +11,5 @@ output "warehouse_name" {
     snowflake_warehouse.warehouse.*.name,
     snowflake_warehouse.warehouse_multi.*.name
   ]
+  description = "The Warehouse resource name."
 }
