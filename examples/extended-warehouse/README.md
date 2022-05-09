@@ -15,9 +15,7 @@ $ terraform apply
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
+No requirements.
 
 ## Providers
 
@@ -27,7 +25,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_warehouse"></a> [warehouse](#module\_warehouse) | ../../ | n/a |
+| <a name="module_warehouse"></a> [warehouse](#module\_warehouse) | ../terraform-sf-warehouse | n/a |
 
 ## Resources
 

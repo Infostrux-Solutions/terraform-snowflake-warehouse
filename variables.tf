@@ -1,12 +1,12 @@
-# Warehouse 
+# Warehouse
 variable "name" {
   type        = string
-  description = "The name to apply to the Snowflake warehouse." 
+  description = "The name to apply to the Snowflake warehouse."
 }
 
 variable "comment" {
   type        = string
-  description = "Comment (description) to add to the warehouse." 
+  description = "Comment (description) to add to the warehouse."
   default     = "Created by Terraform"
 }
 
@@ -18,14 +18,14 @@ variable "size" {
 
 variable "attach_grant_usage" {
   type        = bool
-  description = "Create the grant usage at the same time. (true|false)" 
+  description = "Create the grant usage at the same time. (true|false)"
   default     = false
 }
 
 variable "roles" {
   type        = list(string)
   description = "A list of roles that will be granted usage on the warehouse."
-  default     = []  
+  default     = []
 }
 
 variable "with_grant_option" {
