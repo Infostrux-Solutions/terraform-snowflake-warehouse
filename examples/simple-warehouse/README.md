@@ -25,7 +25,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_warehouse"></a> [warehouse](#module\_warehouse) | ../terraform-sf-warehouse | n/a |
+| <a name="module_warehouse"></a> [warehouse](#module\_warehouse) | ../../../terraform-sf-warehouse | n/a |
 
 ## Resources
 
