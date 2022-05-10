@@ -57,3 +57,5 @@ No modules.
 | <a name="output_warehouse_id"></a> [warehouse\_id](#output\_warehouse\_id) | The Warehouse resource ID. |
 | <a name="output_warehouse_name"></a> [warehouse\_name](#output\_warehouse\_name) | The Warehouse resource name. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Authors
+The module is maintained by @mvanzanten with the help of @eyloninfostrux and @charlesInfostrux 
