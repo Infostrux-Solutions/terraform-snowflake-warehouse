@@ -15,7 +15,10 @@ $ terraform apply
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
+| <a name="requirement_snowflake"></a> [snowflake](#requirement\_snowflake) | 0.40.0 |
 
 ## Providers
 
@@ -25,7 +28,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_warehouse"></a> [warehouse](#module\_warehouse) | ../../../terraform-sf-warehouse | n/a |
+| <a name="module_warehouse"></a> [warehouse](#module\_warehouse) | ../../ | n/a |
 
 ## Resources
 
