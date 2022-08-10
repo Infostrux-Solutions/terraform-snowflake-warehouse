@@ -72,7 +72,7 @@ resource "snowflake_warehouse_grant" "grant_modify" {
 
   privilege = "MODIFY"
 
-  roles  = var.modify_roles
+  roles = var.modify_roles
 
   enable_multiple_grants = true
   with_grant_option      = var.modify_with_grant_option
@@ -85,7 +85,7 @@ resource "snowflake_warehouse_grant" "grant_modify_multi" {
 
   privilege = "MODIFY"
 
-  roles  = var.modify_roles
+  roles = var.modify_roles
 
   enable_multiple_grants = true
   with_grant_option      = var.modify_with_grant_option
@@ -98,7 +98,7 @@ resource "snowflake_warehouse_grant" "grant_operate" {
 
   privilege = "OPERATE"
 
-  roles  = var.operate_roles
+  roles = var.operate_roles
 
   enable_multiple_grants = true
   with_grant_option      = var.operate_with_grant_option
@@ -111,7 +111,7 @@ resource "snowflake_warehouse_grant" "grant_operate_multi" {
 
   privilege = "OPERATE"
 
-  roles  = var.operate_roles
+  roles = var.operate_roles
 
   enable_multiple_grants = true
   with_grant_option      = var.operate_with_grant_option
@@ -124,7 +124,7 @@ resource "snowflake_warehouse_grant" "grant_ownership" {
 
   privilege = "OWNERSHIP"
 
-  roles  = var.ownership_roles
+  roles = var.ownership_roles
 
   enable_multiple_grants = true
   with_grant_option      = var.ownership_with_grant_option
@@ -137,7 +137,7 @@ resource "snowflake_warehouse_grant" "grant_ownership_multi" {
 
   privilege = "OWNERSHIP"
 
-  roles  = var.ownership_roles
+  roles = var.ownership_roles
 
   enable_multiple_grants = true
   with_grant_option      = var.ownership_with_grant_option
@@ -151,20 +151,20 @@ resource "snowflake_warehouse_grant" "grant_monitor" {
 
   privilege = "MONITOR"
 
-  roles  = var.monitor_roles
+  roles = var.monitor_roles
 
   enable_multiple_grants = true
   with_grant_option      = var.monitor_with_grant_option
 }
 
 resource "snowflake_warehouse_grant" "grant_monitor_multi" {
-  count = var.max_cluster_count != null &&  var.attach_grant_monitor == true ? 1 : 0
+  count = var.max_cluster_count != null && var.attach_grant_monitor == true ? 1 : 0
 
   warehouse_name = snowflake_warehouse.warehouse_multi[0].name
 
   privilege = "MONITOR"
 
-  roles  = var.monitor_roles
+  roles = var.monitor_roles
 
   enable_multiple_grants = true
   with_grant_option      = var.monitor_with_grant_option
