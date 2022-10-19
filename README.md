@@ -1,7 +1,63 @@
 # Snowflake Warehouse Terraform Module
-Terraform module which creates a Warehouse in Snowflake.
+Quickly deploy Snowflake Warehouse resources and attach Grants using a Terraform Module.
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Usage
+Simple usage:
+
+```hcl
+module "warehouse" {
+  source  = "Infostrux-Solutions/warehouse/snowflake"
+
+  name = "warehouse_name"
+}
+```
+
+Full usage:
+```hcl
+module "warehouse" {
+  source  = "Infostrux-Solutions/warehouse/snowflake"
+
+  name    = "warehouse_name"
+  comment = "This is for describing the warehouse purpose."
+  size    = "xsmall"
+
+  initially_suspended = true
+  auto_resume         = true
+  auto_suspend        = 300
+
+  min_cluster_count     = 1
+  max_cluster_count     = 2
+  max_concurrency_level = 0
+  scaling_policy        = "STANDARD"
+
+  resource_monitor = ""
+
+  statement_timeout_in_seconds        = 172800
+  statement_queued_timeout_in_seconds = 0
+
+  attach_grant_usage      = true
+  usage_roles             = ["SYSADMIN"]
+  usage_with_grant_option = true
+
+  attach_grant_modify      = true
+  modify_roles             = ["SYSADMIN"]
+  modify_with_grant_option = true
+
+  attach_grant_ownership      = true
+  ownership_roles             = ["SYSADMIN"]
+  ownership_with_grant_option = true
+
+  attach_grant_monitor      = true
+  monitor_roles             = ["SYSADMIN"]
+  monitor_with_grant_option = true
+
+  attach_grant_operate      = true
+  operate_roles             = ["SYSADMIN"]
+  operate_with_grant_option = true
+}
+```
+
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -13,7 +69,7 @@ Terraform module which creates a Warehouse in Snowflake.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | 0.40.0 |
+| <a name="provider_snowflake"></a> [snowflake](#provider\_snowflake) | >=0.40.0 |
 
 ## Modules
 
@@ -76,6 +132,10 @@ No modules.
 |------|-------------|
 | <a name="output_warehouse_id"></a> [warehouse\_id](#output\_warehouse\_id) | The Warehouse resource ID. |
 | <a name="output_warehouse_name"></a> [warehouse\_name](#output\_warehouse\_name) | The Warehouse resource name. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
+
 ## Authors
-Module is maintained by [Infostrux Solutions](mailto:opensource@infostrux.com)
+Module is maintained by [Infostrux Solutions](mailto:opensource@infostrux.com) with help from [these awesome contributors](https://github.com/Infostrux-Solutions/terraform-snowflake-warehouse/graphs/contributors).
+
+## License
+Apache 2 Licensed. See [LICENSE](https://github.com/Infostrux-Solutions/terraform-snowflake-warehouse/blob/main/LICENSE) for full details.
